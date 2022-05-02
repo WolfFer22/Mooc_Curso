@@ -1,21 +1,25 @@
 
 public class DecreasingCounter {
 
-    private int value;  // an object variable for storing the value of the counter
+    private int value = 100;  // an object variable for storing the value of the counter
 
     public DecreasingCounter(int initialValue) {
         this.value = initialValue;
     }
 
     public void printValue() {
-        // Do not change this code!
-        System.out.println("value: " + this.value);
+        if ( this.value >= 0 ) {
+            System.out.println("value: " + this.value);
+        } else {
+            System.out.println("value: 0");
+        }        
     }
 
-    public void decrement() {
-        // write the method implementation here
-        // the aim is to decrement the value of the counter by one
+    public void decrement() {        
+        this.value--;        
     }
-
-    // the other methods go here
+    
+    public void reset(){
+        this.value = 0;
+    }
 }

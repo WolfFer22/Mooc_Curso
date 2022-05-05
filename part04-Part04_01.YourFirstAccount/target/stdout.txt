@@ -1,0 +1,4 @@
+Initial state
+EasyMock for class Account
+End state
+EasyMock for class Account

@@ -1,4 +1,6 @@
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -49,5 +51,25 @@ public class Sandbox {
         System.out.println(matti.getName() + ", body mass index is " + matti.bodyMassIndex());
         System.out.println(juhana.getName() + ", body mass index is " + juhana.bodyMassIndex());
         
+        
+        ////////////////////////////////////////////////////////////////
+        
+        ArrayList<Person> persons = new ArrayList<>();
+
+        // a person object can be created first
+        Person john = new Person("John");
+        // and then added to the list
+        persons.add(john);
+
+        // person objects can also be created "in the same sentence" that they are added to the list
+        persons.add(new Person("Matthew"));
+        persons.add(new Person("Martin"));
+
+        for (Person person: persons) {
+            System.out.println(person);
+        }
+        
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm:ss");
+        System.out.println(LocalDateTime.now());
     }    
 }

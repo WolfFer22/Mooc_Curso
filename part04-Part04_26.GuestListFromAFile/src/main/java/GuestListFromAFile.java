@@ -9,10 +9,20 @@ public class GuestListFromAFile {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Name of the file:");
-        String file = scanner.nextLine();
-
+        String file = scanner.nextLine();  
+        
         ArrayList<String> list = new ArrayList<>();
-        // implement reading the file here.
+        
+        try (Scanner scan = new Scanner(Paths.get(file))){
+            
+            while(scan.hasNextLine()){
+                list.add(scan.nextLine());
+            }
+            
+        } catch (Exception ex) {
+            System.out.println("Error: " + ex);
+        }
+            
         System.out.println("");
 
         System.out.println("Enter names, an empty line quits.");
@@ -20,7 +30,7 @@ public class GuestListFromAFile {
             String name = scanner.nextLine();
             if (name.isEmpty()) {
                 break;
-            }
+            }            
 
             if (list.contains(name)) {
                 System.out.println("The name is on the list.");
@@ -31,4 +41,5 @@ public class GuestListFromAFile {
 
         System.out.println("Thank you!");
     }
+
 }

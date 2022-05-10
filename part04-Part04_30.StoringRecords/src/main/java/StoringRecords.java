@@ -12,8 +12,10 @@ public class StoringRecords {
         String file = scan.nextLine();
 
         ArrayList<Person> records = readRecordsFromFile(file);
+        
         System.out.println("Persons: " + records.size());
         System.out.println("Persons:");
+        
         for (Person person : records) {
             System.out.println(person);
 
@@ -23,9 +25,22 @@ public class StoringRecords {
     public static ArrayList<Person> readRecordsFromFile(String file) {
         ArrayList<Person> persons = new ArrayList<>();
 
-        // Write here the code for reading from file
-        // and printing the read records
+        try (Scanner scan = new Scanner(Paths.get(file))){            
+            
+            while(scan.hasNextLine()){
+                String line = scan.nextLine();
+                String[] parts = line.split(",");
+                
+                String name = parts[0];
+                int age = Integer.valueOf(parts[1]);
+                
+                persons.add(new Person(name, age));
+            }            
+            
+        } catch (Exception ex){
+            System.out.println("Error: " + ex);
+        }
+        
         return persons;
-
     }
 }

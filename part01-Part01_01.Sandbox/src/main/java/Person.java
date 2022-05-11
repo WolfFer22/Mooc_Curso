@@ -2,14 +2,14 @@ public class Person {
     
     private String name;
     private int age;
-    private int weight;
-    private int height;
+    private double weight;
+    private double height;
 
-    public Person(String initialName) {        
+    public Person(String initialName, int age, double weight, double height) {        
         this.name = initialName;
-        this.age = 0;
-        this.weight = 0;
-        this.height = 0;
+        this.age = age;
+        this.weight = weight;
+        this.height = height;
     }
 
     public void printPerson() {
@@ -42,13 +42,17 @@ public class Person {
         this.weight = newWeight;
     }
 
-    public double bodyMassIndex() {
-        double heigthPerHundred = this.height / 100.0;
-        return this.weight / (heigthPerHundred * heigthPerHundred);
+    public double bodyMassIndex() {        
+        return this.weight / (this.height * this.height);
     }
+    
+    public double maximumHeartRate() {
+        return 206.3 - (0.711 * this.age);
+    }    
 
     @Override
     public String toString() {
-        return this.name + ", age=" + age + ", weight=" + weight + ", height=" + height;
+        return this.name + ", age=" + age + ", weight=" + weight + ", height=" + height
+                + ", BMI: " + this.bodyMassIndex() + ", MHR: " + maximumHeartRate();
     }   
 }

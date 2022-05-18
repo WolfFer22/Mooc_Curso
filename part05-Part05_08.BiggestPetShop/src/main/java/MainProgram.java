@@ -9,6 +9,6 @@ public class MainProgram {
         Pet hulda = new Pet("Hulda", "Golden retriever");
         Person leo = new Person("Leo", hulda);
 
-        System.out.println(leo);
+        System.out.println(leo);  
     }
 }

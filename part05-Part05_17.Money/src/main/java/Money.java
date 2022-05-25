@@ -7,12 +7,12 @@ public class Money {
     public Money(int euros, int cents) {
 
         if (cents > 99) {
-            euros = euros + cents / 100;
-            cents = cents % 100;
+            euros = euros + 1;
+            cents = cents - 100;
         }
         if (cents < 0) {
-            euros = (euros - 1) - cents / 100;
-            cents = 100 - Math.abs(cents % 100);
+            euros = (euros - 1);
+            cents = cents + 100;
         }
 
         this.euros = euros;

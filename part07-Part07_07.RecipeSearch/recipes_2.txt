@@ -1,8 +1,0 @@
-Pancake dough
-60
-milk
-egg
-flour
-sugar
-salt
-butter
